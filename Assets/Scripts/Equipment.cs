@@ -9,12 +9,18 @@ public class Equipment : MonoBehaviour {
 	[SerializeField]
 	GameObject slotPrefab;
 	[SerializeField]
+	GameObject itemPrefab;
+	[SerializeField]
 	float distanceBetweenSlots = 2.5f;
 	float xPosition;
 	float yPosition;
 	float imageHeight;
-	int numberOfSlots = 10;
-	Item[] items = new Item[10];
+	const int numberOfSlots = 10;
+	int currentSlot = 0;
+	//ArrayList items = new ArrayList();
+	GameObject[] slots = new GameObject[numberOfSlots];
+	//GameObject[] items = new GameObject[numberOfSlots];
+
 
 	// Use this for initialization
 	void Start () {
@@ -29,20 +35,38 @@ public class Equipment : MonoBehaviour {
 		 */
 		for (int i = 0; i < numberOfSlots; i++)
 		{
-			GameObject slot = Instantiate<GameObject>(slotPrefab);
-			slot.transform.SetParent(canvas.transform);
-			slot.transform.position = 
+			slots[i] = Instantiate<GameObject>(slotPrefab);
+			slots[i].transform.SetParent(canvas.transform);
+			slots[i].transform.position =
 				new Vector3(slotPrefab.transform.position.x,
 				slotPrefab.transform.position.y
-				+ i * (slotPrefab.GetComponent<RectTransform>().sizeDelta.y 
+				+ i * (slotPrefab.GetComponent<RectTransform>().sizeDelta.y
 				+ distanceBetweenSlots),
 				0f);
-			slot.name = "Slot" + (i+1);
+			slots[i].name = "Slot" + (i + 1);
 		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	public void addItem(GameObject item)
+	{
+		// Create new item in players inventory
+		GameObject itemShell = Instantiate<GameObject>(itemPrefab);
+		itemShell.name = item.name;
+		itemShell.tag = item.tag;
+		// Set it as a child of corresponding type of items
+		itemShell.transform.SetParent(transform.FindChild(itemShell.tag + " Pocket"));
+		// Copy script component.
+		UnityEditorInternal.ComponentUtility.CopyComponent(item.GetComponent<Item>());
+		UnityEditorInternal.ComponentUtility.PasteComponentValues(itemShell.GetComponent<Item>());
+		//Change image of the slot.
+		slots[currentSlot].GetComponent<Image>().sprite = item.GetComponent<Item>().itemImage;
+		// Destroy original item
+		Destroy(item);
+		currentSlot++;
 	}
 }

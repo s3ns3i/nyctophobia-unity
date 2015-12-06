@@ -4,8 +4,11 @@ using UnityEngine.UI;
 
 public class Item : MonoBehaviour {
 
+	[SerializeField]
+	GameObject equipment;
+
 	public int itemId;
-	public Image itemImage;
+	public Sprite itemImage;
 	public string itemName;
 	public Type itemType;
 	//and maybe something more
@@ -19,6 +22,11 @@ public class Item : MonoBehaviour {
 	{
 		key,
 		battery
+	}
+
+	public void collectItem()
+	{
+		equipment.GetComponent<Equipment>().addItem(gameObject);
 	}
 
 }
