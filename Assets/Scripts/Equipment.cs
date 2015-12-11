@@ -61,8 +61,15 @@ public class Equipment : MonoBehaviour {
 		// Set it as a child of corresponding type of items
 		itemShell.transform.SetParent(transform.FindChild(itemShell.tag + " Pocket"));
 		// Copy script component.
-		UnityEditorInternal.ComponentUtility.CopyComponent(item.GetComponent<Item>());
-		UnityEditorInternal.ComponentUtility.PasteComponentValues(itemShell.GetComponent<Item>());
+		// THIS COULD BE DONE BETTER, BUT PROBABLY I WON'T HAVE TIME TO DO THIS
+		Item itemComponent = item.GetComponent<Item>();
+		Item itemShellComponent = itemShell.GetComponent<Item>();
+		itemShellComponent.itemId = itemComponent.itemId;
+		itemShellComponent.itemImage = itemComponent.itemImage;
+		itemShellComponent.itemName = itemComponent.itemName;
+		itemShellComponent.itemType = itemComponent.itemType;
+		//UnityEditorInternal.ComponentUtility.CopyComponent(item.GetComponent<Item>());
+		//UnityEditorInternal.ComponentUtility.PasteComponentValues(itemShell.GetComponent<Item>());
 		//Change image of the slot.
 		slots[currentSlot].GetComponent<Image>().sprite = item.GetComponent<Item>().itemImage;
 		// Destroy original item

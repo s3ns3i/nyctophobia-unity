@@ -44,18 +44,25 @@ public class Door : MonoBehaviour {
 					&& key.tag == doorKey.tag)
 				{
 					// open door
-					GetComponent<Animator>().SetTrigger("door_action");
-					doorClosed = !doorClosed;
-					return true;
+					return doorAction();
 				}
 			}
 			return false;
 		}
 		else
 		{
-			GetComponent<Animator>().SetTrigger("door_action");
-			doorClosed = !doorClosed;
-			return true;
+			return doorAction();
 		}
+	}
+
+	bool doorAction()
+	{
+		GetComponent<Animator>().SetTrigger("door_action");
+		if(doorClosed)
+			GetComponent<Sounds>().PlaySound(0, 1f);
+		if (!doorClosed)
+			GetComponent<Sounds>().PlaySound(1, 1f);
+		doorClosed = !doorClosed;
+		return true;
 	}
 }
