@@ -7,17 +7,20 @@ public class Equipment : MonoBehaviour {
 	[SerializeField]
 	Canvas canvas;
 	[SerializeField]
+	GameObject equipmentPanel;
+	[SerializeField]
 	GameObject slotPrefab;
 	[SerializeField]
 	GameObject itemPrefab;
-	[SerializeField]
-	float distanceBetweenSlots = 2.5f;
+	//[SerializeField]
+	//float distanceBetweenSlots = 2.5f;
 	float xPosition;
 	float yPosition;
 	float imageHeight;
-	const int numberOfSlots = 10;
+	const int numberOfSlots = 4;
 	int currentSlot = 0;
 	//ArrayList items = new ArrayList();
+	[SerializeField]
 	GameObject[] slots = new GameObject[numberOfSlots];
 	//GameObject[] items = new GameObject[numberOfSlots];
 
@@ -33,18 +36,18 @@ public class Equipment : MonoBehaviour {
 		 * handle bar - 1/20 window size
 		 * slots - idk yet
 		 */
-		for (int i = 0; i < numberOfSlots; i++)
-		{
-			slots[i] = Instantiate<GameObject>(slotPrefab);
-			slots[i].transform.SetParent(canvas.transform);
-			slots[i].transform.position =
-				new Vector3(slotPrefab.transform.position.x,
-				slotPrefab.transform.position.y
-				+ i * (slotPrefab.GetComponent<RectTransform>().sizeDelta.y
-				+ distanceBetweenSlots),
-				0f);
-			slots[i].name = "Slot" + (i + 1);
-		}
+		//for (int i = 0; i < numberOfSlots; i++)
+		//{
+		//	slots[i] = Instantiate<GameObject>(slotPrefab);
+		//	slots[i].transform.SetParent(equipmentPanel.transform);
+			//slots[i].transform.position =
+			//	new Vector3(slotPrefab.transform.position.x,
+			//	slotPrefab.transform.position.y
+			//	+ i * (slotPrefab.GetComponent<RectTransform>().sizeDelta.y
+			//	+ distanceBetweenSlots),
+			//	0f);
+		//	slots[i].name = "Slot" + (i + 1);
+		//}
 	}
 	
 	// Update is called once per frame

@@ -1,0 +1,163 @@
+fileFormatVersion: 2
+guid: a7f0e8dab292054498bc42f6df276d52
+timeCreated: 1450630633
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: bottomblue
+    100004: bottomred
+    100006: bottomwhite
+    100008: Box003
+    100010: Box004
+    100012: Box007
+    100014: Box008
+    100016: Box011
+    100018: Box012
+    100020: C_Ext001
+    100022: C_Ext002
+    100024: C_Ext003
+    100026: Cylinder001
+    100028: Cylinder002
+    100030: Cylinder003
+    100032: topblue
+    100034: topred
+    100036: topwhite
+    400000: //RootNode
+    400002: bottomblue
+    400004: bottomred
+    400006: bottomwhite
+    400008: Box003
+    400010: Box004
+    400012: Box007
+    400014: Box008
+    400016: Box011
+    400018: Box012
+    400020: C_Ext001
+    400022: C_Ext002
+    400024: C_Ext003
+    400026: Cylinder001
+    400028: Cylinder002
+    400030: Cylinder003
+    400032: topblue
+    400034: topred
+    400036: topwhite
+    2300000: bottomblue
+    2300002: bottomred
+    2300004: bottomwhite
+    2300006: Box003
+    2300008: Box004
+    2300010: Box007
+    2300012: Box008
+    2300014: Box011
+    2300016: Box012
+    2300018: C_Ext001
+    2300020: C_Ext002
+    2300022: C_Ext003
+    2300024: Cylinder001
+    2300026: Cylinder002
+    2300028: Cylinder003
+    2300030: topblue
+    2300032: topred
+    2300034: topwhite
+    3300000: bottomblue
+    3300002: bottomred
+    3300004: bottomwhite
+    3300006: Box003
+    3300008: Box004
+    3300010: Box007
+    3300012: Box008
+    3300014: Box011
+    3300016: Box012
+    3300018: C_Ext001
+    3300020: C_Ext002
+    3300022: C_Ext003
+    3300024: Cylinder001
+    3300026: Cylinder002
+    3300028: Cylinder003
+    3300030: topblue
+    3300032: topred
+    3300034: topwhite
+    4300000: bottomblue
+    4300002: bottomred
+    4300004: bottomwhite
+    4300006: Box003
+    4300008: Box004
+    4300010: Box007
+    4300012: Box008
+    4300014: Box011
+    4300016: Box012
+    4300018: C_Ext001
+    4300020: C_Ext002
+    4300022: C_Ext003
+    4300024: Cylinder001
+    4300026: Cylinder002
+    4300028: Cylinder003
+    4300030: topblue
+    4300032: topred
+    4300034: topwhite
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.004
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 1
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
