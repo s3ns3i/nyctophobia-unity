@@ -14,7 +14,7 @@ public class PlayerActions : MonoBehaviour
 	[SerializeField]
 	GameObject equipment;
 	[SerializeField]
-	bool flashlightOn = true;
+	GameObject flashlightLight;
 
 	bool doorClosed = true;
 	bool shownGUI = false;
@@ -29,32 +29,25 @@ public class PlayerActions : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+
+		if (Input.GetButtonDown ("Fire2")) {
+			flashlightLight.SetActive (!flashlightLight.activeSelf);
+		}
+
 		RaycastHit hit;
 
 		if (Physics.Raycast (mainCamera.position, mainCamera.forward, out hit, rayLength)) {
 			Debug.Log ("Detected collision");
 			if (hit.collider.gameObject.tag == "Door") {
 				showActionText ("Use");
-				//if (!shownGUI)
-				//{
-				//	actionText.text = "Use";
-				//	shownGUI = true;
-				//}
 				if (Input.GetButtonDown ("Use")) {
 					Debug.Log (hit.collider.gameObject.GetComponent<Door> ());
 					if (!hit.collider.transform.parent.GetComponent<Door> ().openDoor (equipment)) {
 						showActionText ("This door is locked", false);
-						//actionText.text = "This door is locked";
-						//shownGUI = true;
 					}
 				}
 			} else if (hit.collider.gameObject.tag == "Key") {
 				showActionText ("Pick up");
-				//if (!shownGUI)
-				//{
-				//	actionText.text = "Pick up";
-				//	shownGUI = true;
-				//}
 
 				if (Input.GetButtonDown ("Use")) {
 					Debug.Log ("picking up a key");
@@ -66,17 +59,6 @@ public class PlayerActions : MonoBehaviour
 				// Same line is out the if statement, because without this line text won't
 				// disappear raycast will detect collissions with, for example, wall
 				deleteActionText ();
-				//if (shownGUI)
-				//{
-				//	Debug.Log("deleting text");
-				//	actionText.text = "";
-				//	shownGUI = false;
-				//}
-			}
-			if (Input.GetButtonDown ("Fire2")) {
-				GameObject flashlightLight = transform.GetChild (0).GetChild (0).GetChild (0).gameObject;
-				flashlightOn = !flashlightOn;
-				flashlightLight.SetActive (flashlightOn);
 			}
 		}
 			// If you'll, for example, open a door, raycast won't detect collision,

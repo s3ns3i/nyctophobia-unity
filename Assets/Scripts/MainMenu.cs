@@ -7,16 +7,16 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
 
-	[SerializeField]
-	Button quitButton;
-	[SerializeField]
-	Button newGameButton;
-	[SerializeField]
-	Button optionsButton;
+	//	[SerializeField]
+	//	Button quitButton;
+	//	[SerializeField]
+	//	Button newGameButton;
+	//	[SerializeField]
+	//	Button optionsButton;
 	[SerializeField]
 	Slider soundSlider;
-	[SerializeField]
-	Text resolutionLabel;
+	//	[SerializeField]
+	//	Text resolutionLabel;
 	[SerializeField]
 	Dropdown resolutionDropdown;
 	[SerializeField]
@@ -109,7 +109,7 @@ public class MainMenu : MonoBehaviour
 
 	public void OnResolutionChanged ()
 	{
-		Debug.Log("OnResolutionChanged() invoked");
+		Debug.Log ("OnResolutionChanged() invoked");
 		Screen.SetResolution (resolutions [resolutionDropdown.value].width, resolutions [resolutionDropdown.value].height, Screen.fullScreen);
 	}
 

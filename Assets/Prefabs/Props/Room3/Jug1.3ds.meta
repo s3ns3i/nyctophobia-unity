@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 77c1b771ebe569049b0bb65498248cd2
-timeCreated: 1450631933
+guid: a500e3e3623403642a10546aed17a2dd
+timeCreated: 1451759349
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: stool2
+    4300000: Object_000
   materials:
     importMaterials: 1
     materialName: 0

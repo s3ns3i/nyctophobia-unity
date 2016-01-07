@@ -1,36 +1,37 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.Characters.FirstPerson;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
+	[SerializeField]
+	GameObject staminaBar;
+	[SerializeField]
+	GameObject staminaCurrentBar;
+	[SerializeField]
+	GameObject player;
 
-	//public bool isCursorLocked = true;
+	FirstPersonController playerController;
 
 	// Use this for initialization
-	void Start () {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+	void Start ()
+	{
+//		player.GetComponent<Transform> ().localRotation = new Quaternion (0f, 1f, 0f, 0f);
+		playerController = player.GetComponent<FirstPersonController> ();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		//if (Input.GetKeyDown("escape") && isCursorLocked)
-		if(Input.GetKeyDown("escape"))
-        {
-			//isCursorLocked = false;
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-		//else if (Input.GetButtonDown("Fire1") && !isCursorLocked)
-		else if(Input.GetButtonDown("Fire1"))
-        {
-			//isCursorLocked = true;
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-		//else if (Input.GetMouseButtonDown(0))
-		//{
-		//	Cursor.lockState = CursorLockMode.Locked;
-		//	Cursor.visible = false;
-		//}
+	void Update ()
+	{
+	}
+
+	void OnGUI ()
+	{
+		float barHeight = staminaBar.GetComponent<RectTransform> ().sizeDelta.y;
+		float barWidth = staminaBar.GetComponent<RectTransform> ().sizeDelta.x;
+		float currentBarWidth = (playerController.Stamina * barWidth) /
+		                        playerController.MaxStamina;
+		Vector2 barSize = new Vector2 (currentBarWidth, barHeight);
+		staminaCurrentBar.GetComponent<RectTransform> ().sizeDelta = barSize;
 	}
 }
