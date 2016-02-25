@@ -13,10 +13,11 @@ public class PlayerActions : MonoBehaviour
 	GameObject gameManager;
 	[SerializeField]
 	GameObject equipment;
-	[SerializeField]
+    [SerializeField]
+    GameObject flashlight;
 	GameObject flashlightLight;
 
-	bool doorClosed = true;
+	//bool doorClosed = true;
 	bool shownGUI = false;
 	Transform mainCamera;
 
@@ -24,6 +25,7 @@ public class PlayerActions : MonoBehaviour
 	void Start ()
 	{
 		mainCamera = Camera.main.transform;
+        flashlightLight = flashlight.transform.GetChild(0).gameObject;
 	}
 	
 	// Update is called once per frame
@@ -31,13 +33,24 @@ public class PlayerActions : MonoBehaviour
 	{
 
 		if (Input.GetButtonDown ("Fire2")) {
-			flashlightLight.SetActive (!flashlightLight.activeSelf);
-		}
+            if (flashlightLight.activeSelf)
+            {
+                // Turn off
+                flashlightLight.SetActive(false);
+                flashlight.GetComponent<Sounds>().PlaySound(1, 1f);
+            }
+            else
+            {
+                // Turn on
+                flashlightLight.SetActive(true);
+                flashlight.GetComponent<Sounds>().PlaySound(0, 1f);
+            }
+        }
 
 		RaycastHit hit;
 
 		if (Physics.Raycast (mainCamera.position, mainCamera.forward, out hit, rayLength)) {
-			Debug.Log ("Detected collision");
+			//Debug.Log ("Detected collision");
 			if (hit.collider.gameObject.tag == "Door") {
 				showActionText ("Use");
 				if (Input.GetButtonDown ("Use")) {

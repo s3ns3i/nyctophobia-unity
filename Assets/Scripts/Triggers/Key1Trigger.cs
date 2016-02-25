@@ -1,26 +1,23 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class Key1Trigger : OnDestroyPropTrigger
+public class Key1Trigger : MonoBehaviour
 {
 
-	[SerializeField]
-	GameObject victim;
+    [SerializeField]
+    GameObject victim;
+    [SerializeField]
+    GameObject prop;
 
-	// Use this for initialization
-	void Start ()
-	{
-	
-	}
-
-	public override void TriggerAction ()
-	{
-		Debug.Log ("Entered triggerAction");
-		Vector3 relativePosition = victim.transform.position - prop.transform.position;
-		relativePosition.y = 0f;
-		prop.transform.rotation = Quaternion.LookRotation (relativePosition, Vector3.up);
-		//play sound
-		prop.gameObject.GetComponent<AudioSource> ().Play ();
-		//Destroy(gameObject);
-	}
+    void OnDestroy()
+    {
+        if (victim != null && prop != null)
+        {
+            Vector3 relativePosition = victim.transform.position - prop.transform.position;
+            relativePosition.y = 0f;
+            // Rotate prop so it will face player.
+            prop.transform.rotation = Quaternion.LookRotation(relativePosition, Vector3.up);
+            //play sound
+            prop.gameObject.GetComponent<AudioSource>().Play();
+        }
+    }
 }

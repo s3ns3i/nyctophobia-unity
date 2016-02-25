@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Equipment : MonoBehaviour {
 
 	[SerializeField]
-	Canvas canvas;
+	Canvas ui;
 	[SerializeField]
 	GameObject equipmentPanel;
 	[SerializeField]
@@ -39,7 +39,7 @@ public class Equipment : MonoBehaviour {
 		//for (int i = 0; i < numberOfSlots; i++)
 		//{
 		//	slots[i] = Instantiate<GameObject>(slotPrefab);
-		//	slots[i].transform.SetParent(equipmentPanel.transform);
+		//	slots[i].transform.SetParent(equipment.transform);
 			//slots[i].transform.position =
 			//	new Vector3(slotPrefab.transform.position.x,
 			//	slotPrefab.transform.position.y
@@ -69,8 +69,8 @@ public class Equipment : MonoBehaviour {
 		Item itemShellComponent = itemShell.GetComponent<Item>();
 		itemShellComponent.itemId = itemComponent.itemId;
 		itemShellComponent.itemImage = itemComponent.itemImage;
-		itemShellComponent.itemName = itemComponent.itemName;
-		itemShellComponent.itemType = itemComponent.itemType;
+		//itemShellComponent.itemName = itemComponent.itemName;
+		//itemShellComponent.itemType = itemComponent.itemType;
 		//UnityEditorInternal.ComponentUtility.CopyComponent(item.GetComponent<Item>());
 		//UnityEditorInternal.ComponentUtility.PasteComponentValues(itemShell.GetComponent<Item>());
 		//Change image of the slot.

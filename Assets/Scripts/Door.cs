@@ -15,7 +15,6 @@ public class Door : MonoBehaviour
 	void Start ()
 	{
 		if (doorKey != null) {
-			Debug.Log ("Door " + transform.name + " have a key");
 			doorLocked = true;
 			doorKeyComponent = doorKey.GetComponent<Item> ();
 		}
@@ -30,12 +29,11 @@ public class Door : MonoBehaviour
 	public bool openDoor (GameObject equipment)
 	{
 		if (doorLocked) {
-			Debug.Log ("door is locked");
 			int numberOfKeys = equipment.transform.GetChild (0).childCount;
 			Transform keyPocket = equipment.transform.GetChild (0);
 			Transform key;
 			Item keyComponent;
-			// search equipment for keys
+			// search equipmenta key pocket for keys
 			for (int i = 0; i < numberOfKeys; i++) {
 				key = keyPocket.GetChild (i);
 				keyComponent = key.GetComponent<Item> ();

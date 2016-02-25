@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
 
 public class InGameMenu : MainMenu
 {
 	
 	[SerializeField]
-	FirstPersonController player;
+	FirstPersonControllerModified player;
 	[SerializeField]
 	GameObject menu;
 	[SerializeField]
@@ -13,9 +14,11 @@ public class InGameMenu : MainMenu
 
 	bool isGamePaused = false;
 
-	public void Start ()
-	{
-		Cursor.lockState = CursorLockMode.Locked;
+	public new void Start ()
+    {
+        base.Start();
+        continueButton.GetComponent<Text>().text = "Continue";
+        Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
 		menu.SetActive (false);
 		hud.SetActive (true);

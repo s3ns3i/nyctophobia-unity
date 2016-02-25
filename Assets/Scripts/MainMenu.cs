@@ -7,13 +7,13 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
 
-	//	[SerializeField]
-	//	Button quitButton;
-	//	[SerializeField]
-	//	Button newGameButton;
-	//	[SerializeField]
-	//	Button optionsButton;
-	[SerializeField]
+    [SerializeField]
+    protected GameObject continueButton;
+    //	[SerializeField]
+    //	Button newGameButton;
+    //	[SerializeField]
+    //	Button optionsButton;
+    [SerializeField]
 	Slider soundSlider;
 	//	[SerializeField]
 	//	Text resolutionLabel;
@@ -33,9 +33,12 @@ public class MainMenu : MonoBehaviour
 	int qualityMinimum = 2;
 
 	// Use this for initialization
-	void Start ()
+	protected void Start ()
 	{
-		mainMenuGroup.SetActive (true);
+        continueButton.GetComponent<Text>().text = "New Game";
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        mainMenuGroup.SetActive (true);
 		optionsGroup.SetActive (false);
 		resolutions = Screen.resolutions;
 		// if it's web, don't include Quit button.
